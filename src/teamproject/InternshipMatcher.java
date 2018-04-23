@@ -9,9 +9,9 @@ package teamproject;
 import java.util.ArrayList;
 
 public class InternshipMatcher {
-    ArrayList<Company> companies;
-    ArrayList<Student> students;
-    ArrayList<String> internshipTypes;
+    private ArrayList<Company> companies;
+    private ArrayList<Student> students;
+    private ArrayList<String> internshipTypes;
     
     public InternshipMatcher() {
         companies = new ArrayList<Company>();
@@ -21,8 +21,7 @@ public class InternshipMatcher {
         this.addExistingCompanies();
     }
     
-    private void addExistingCompanies() {
-        ArrayList<Company> companies = new ArrayList<>();
+    private void addExistingCompanies() {        
         companies.add(new Company(
             "Google",
             "Jack Sullivan",
@@ -156,7 +155,7 @@ public class InternshipMatcher {
         ArrayList<Company> matchingCompanies = new ArrayList<Company>();
         
         for (int i = 0; i < this.companies.size(); i++) {
-            if (this.companies.get(i).checkInternshipOffered(s.getSemesterForIntership())) {
+            if (this.companies.get(i).checkInternshipOffered(s.getInternshipSemester())) {
                 matchingCompanies.add(this.companies.get(i));
             }
         }

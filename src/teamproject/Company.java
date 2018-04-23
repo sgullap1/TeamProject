@@ -33,7 +33,12 @@ public class Company {
     private ArrayList<CompanyInternship> 
         offeredInternships = new ArrayList<>();
     
-    // main added to test the class
+    // Default Constructor
+    public Company() {
+        
+    }
+    
+    // Constructor
     public Company(String companyName, String contactName, String contactEmail, CompanyInternship ... internships) {
         this.companyName = companyName;
         this.contactName = contactName;
@@ -42,22 +47,6 @@ public class Company {
         for (CompanyInternship internship : internships) {
             this.offeredInternships.add(internship);
         }
-    }
-    
-    public static Company getNewCompany(
-        String companyName, 
-        String contactName, 
-        String contactEmail,
-        CompanyInternship ... internships) {
-        
-        Company newCompany = new Company();
-        newCompany.setCompanyName(companyName);
-        newCompany.setContactName(contactName);
-        newCompany.setContactEmail(contactEmail);
-        for (CompanyInternship internship : internships) {
-            newCompany.addInternship(internship);
-        }
-        return newCompany;
     }
 
     public String getCompanyName() {
@@ -116,15 +105,15 @@ public class Company {
         return;
     }
     
-    // This returns the list of the internships that match the type in argument.
-    public ArrayList<CompanyInternship> checkInternshipOffered(
+    // This returns the true if company supports the internshipType passed.
+    public boolean checkInternshipOffered(
             String internshipType) {
-        ArrayList<CompanyInternship> result = new ArrayList<>();
+        
         for (int i = 0; i < offeredInternships.size(); i++) {
             if (offeredInternships.get(i).getInternshipType().equals(internshipType)) {
-                result.add(offeredInternships.get(i));
+                return true;
             }
         }
-        return result;
+        return false;
     }
 }

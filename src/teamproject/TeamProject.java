@@ -9,22 +9,12 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class TeamProject {
-
-    ArrayList<Company> listOfCompanies;
-    ArrayList<Student> listOfStudents;
-	Scanner in;
-
-	public Main() {
-		listOfCompanies = new ArrayList<Company>();
-		listOfStudents = new ArrayList<Student>();
-		in = new Scanner(System.in);
-	}
-
+        private static Scanner in = new Scanner(System.in);
+        
 	public static void main(String[] args) {
+            System.out.println("Welcome to Internship Program\n");
 
-		System.out.println("Welcome to Internship Program\n");
-
-		Main main = new Main();
+		InternshipMatcher matcher = new InternshipMatcher();
 
 		int menuChoice = 0;
 
@@ -43,10 +33,10 @@ public class TeamProject {
 			System.out.println("10. Exit");
 
 			try {
-				menuChoice = main.in.nextInt();
+				menuChoice = in.nextInt();
 			} catch (Exception e) {
 				menuChoice = 0;
-				main.in.nextLine();
+				in.nextLine();
 
 				continue;
 
@@ -61,38 +51,37 @@ public class TeamProject {
 
 				System.out.println("Adding new company:\n");
 
-				company = main.setCompanyDetails(company);
+				company = setCompanyDetails(company);
 
-				main.listOfCompanies.add(company);
+				matcher.addCompany(company);
 
 				System.out.println("Company added successfully!");
 				break;
 			}
 			case 2: {
-				if (main.listOfCompanies.size() < 1) {
+                ArrayList<Company> allCompanies = matcher.getAllCompanies();
+                            
+				if (allCompanies.size() < 1) {
 					System.out.println("\nNo company exists yet!\n");
 					break;
 				}
 
 				System.out.println("Select company to edit from list:");
 
-				for (int i = 0; i < main.listOfCompanies.size(); i++) {
+				for (int i = 0; i < allCompanies.size(); i++) {
 					System.out.println("Company No. " + i);
-					main.listOfCompanies.get(i).printCompany();
+					printCompany(allCompanies.get(i), i);
 				}
 
 				System.out.println("\n\nEnter number to edit , -1 to return:");
 
-				int companyNumber = main.in.nextInt();
+				int companyNumber = in.nextInt();
 
 				if (companyNumber == -1)
 					break;
 
-				Company company = main.listOfCompanies.get(companyNumber);
-
-				company = main.setCompanyDetails(company);
-
-				main.listOfCompanies.set(companyNumber, company);
+				Company company = allCompanies.get(companyNumber);
+				setCompanyDetails(company);
 
 				System.out.println("Company edited successfully!");
 
@@ -100,26 +89,28 @@ public class TeamProject {
 				break;
 
 			case 3: {
-				if (main.listOfCompanies.size() < 1) {
+				ArrayList<Company> allCompanies = matcher.getAllCompanies();
+
+				if (allCompanies.size() < 1) {
 					System.out.println("\nNo company exists yet!\n");
 					break;
 				}
 
 				System.out.println("Select company to delete: ");
 
-				for (int i = 0; i < main.listOfCompanies.size(); i++) {
+				for (int i = 0; i < allCompanies.size(); i++) {
 					System.out.println("Company No. " + i);
-					main.listOfCompanies.get(i).printCompany();
+					printCompany(allCompanies.get(i), i);
 				}
 
 				System.out.println("\n\nEnter number to delete , -1 to return:");
 
-				int companyNumber = main.in.nextInt();
+				int companyNumber = in.nextInt();
 
 				if (companyNumber == -1)
 					break;
 
-				main.listOfCompanies.remove(companyNumber);
+				matcher.removeCompany(allCompanies.get(companyNumber));
 
 				System.out.println("Company deleted successfully!");
 
@@ -127,15 +118,15 @@ public class TeamProject {
 				break;
 
 			case 4: {
-				if (main.listOfCompanies.size() < 1) {
+				if (matcher.getAllCompanies().size() < 1) {
 					System.out.println("\nNo company exists yet!\n");
 					break;
 				}
 
 				System.out.println("\nPrinting list of all companies\n");
-				for (int i = 0; i < main.listOfCompanies.size(); i++) {
+				for (int i = 0; i < matcher.getAllCompanies().size(); i++) {
 					System.out.println("Company No. " + i);
-					main.listOfCompanies.get(i).printCompany();
+					printCompany(matcher.getAllCompanies().get(i), i);
 				}
 
 			}
@@ -147,61 +138,65 @@ public class TeamProject {
 
 				System.out.println("Adding new student:\n");
 
-				student = main.setStudentDetails(student);
+				student = setStudentDetails(student);
 
-				main.listOfStudents.add(student);
+				matcher.addStudent(student);
 
 				System.out.println("Student added succesfully!");
 			}
 				break;
 
 			case 6: {
-				if (main.listOfStudents.size() < 1) {
+				ArrayList<Student> allStudents = new ArrayList<Student>();
+
+				if (allStudents.size() < 1) {
 					System.out.println("\nNo student exists yet!\n");
 					break;
 				}
 
 				System.out.println("Select student to edit from list, -1 to return: ");
 
-				for (int i = 0; i < main.listOfStudents.size(); i++) {
+				for (int i = 0; i < allStudents.size(); i++) {
 					System.out.println("Student No. " + i);
-					main.listOfStudents.get(i).printStudent();
+					printStudent(allStudents.get(i), i);
 				}
 
-				int studentNumber = main.in.nextInt();
+				int studentNumber = in.nextInt();
 
 				if (studentNumber == -1)
 					break;
 
-				Student student = main.listOfStudents.get(studentNumber);
+				Student student = allStudents.get(studentNumber);
 
-				student = main.setStudentDetails(student);
+				student = setStudentDetails(student);
 
-				main.listOfStudents.set(studentNumber, student);
+				allStudents.set(studentNumber, student);
 
 				System.out.println("Student edited successfully!");
 			}
 				break;
 
 			case 7: {
-				if (main.listOfStudents.size() < 1) {
+				ArrayList<Student> allStudents = new ArrayList<Student>();
+
+				if (allStudents.size() < 1) {
 					System.out.println("\nNo student exists yet!\n");
 					break;
 				}
 
 				System.out.println("Select student to delete from list, -1 to return: ");
 
-				for (int i = 0; i < main.listOfStudents.size(); i++) {
+				for (int i = 0; i < allStudents.size(); i++) {
 					System.out.println("Student No. " + i);
-					main.listOfStudents.get(i).printStudent();
+					printStudent(allStudents.get(i), i);
 				}
 
-				int studentNumber = main.in.nextInt();
+				int studentNumber = in.nextInt();
 
 				if (studentNumber == -1)
 					break;
 
-				main.listOfStudents.remove(studentNumber);
+					allStudents.remove(studentNumber);
 
 				System.out.println("Student deleted successfully!");
 			}
@@ -210,9 +205,9 @@ public class TeamProject {
 			case 8: {
 				System.out.println("Displaying all students: ");
 
-				for (int i = 0; i < main.listOfStudents.size(); i++) {
+				for (int i = 0; i < matcher.getAllStudents().size(); i++) {
 					System.out.println("Student No. " + i);
-					main.listOfStudents.get(i).printStudent();
+					printStudent(matcher.getAllStudents().get(i), i);
 				}
 			}
 				break;
@@ -221,23 +216,33 @@ public class TeamProject {
 
 				System.out.println("\nFinding matching internships for students:");
 				System.out.println("Searching for students who match their type of internship and year:");
+                                
+                                for (int i = 0; i < matcher.getAllStudents().size(); i++) {
+                                    printStudent(matcher.getAllStudents().get(i), i);
+                                    
+                                    ArrayList<Company> companyMatches = matcher.getCompanyMatchesByStudent(matcher.getAllStudents().get(i));
+                                    System.out.println("Companies offering similar internship:");
+                                    for (Company company : companyMatches) {
+                                        System.out.println(company.getCompanyName());
+                                    }
+                                }
 
-				for (Company company : main.listOfCompanies) {
-					for (Student student : main.listOfStudents) {
-						if (student.semester.equalsIgnoreCase(company.semester)) {
-							
-							if (student.typeOfInternship.equalsIgnoreCase(company.typeOfInternship)) {
-								System.out.println("\nInternship match found.");
-								System.out.println("Student Name: "+student.name);
-								System.out.println("Company Name: "+company.companyName);
-								System.out.println("Internship Title: "+company.internshipTitle);
-								System.out.println("Internship type: "+company.typeOfInternship);
-								System.out.println("Intership paid: "+company.isPaid);
-								System.out.println("Semester: "+company.semester);
-							}
-						}
-					}
-				}
+//				for (Company company : main.listOfCompanies) {
+//					for (Student student : main.listOfStudents) {
+//						if (student.semester.equalsIgnoreCase(company.semester)) {
+//							
+//							if (student.typeOfInternship.equalsIgnoreCase(company.typeOfInternship)) {
+//								System.out.println("\nInternship match found.");
+//								System.out.println("Student Name: "+student.name);
+//								System.out.println("Company Name: "+company.companyName);
+//								System.out.println("Internship Title: "+company.internshipTitle);
+//								System.out.println("Internship type: "+company.typeOfInternship);
+//								System.out.println("Intership paid: "+company.isPaid);
+//								System.out.println("Semester: "+company.semester);
+//							}
+//						}
+//					}
+//				}
 
 			}
 			System.out.println("\n");
@@ -251,53 +256,106 @@ public class TeamProject {
 
 	}
 
-	private Student setStudentDetails(Student student) {
+	private static Student setStudentDetails(Student student) {
 
 		in.nextLine();
 
 		System.out.println("Enter Student Name:");
 		String name = in.nextLine();
+		student.setName(name);
 
 		System.out.println("Enter Student Email:");
 		String email = in.nextLine();
+                student.setEmail(email);
 
 		System.out.println("Enter Type of Internship:");
 		String typeOfInternship = in.nextLine();
+                student.setInternshipType(typeOfInternship);
 
 		System.out.println("Enter Student Semester:");
 		String semester = in.nextLine();
-
-		student.setStudent(name, email, typeOfInternship, semester);
-
+                student.setInternshipSemester(semester);
+                
 		return student;
 	}
 
-	private Company setCompanyDetails(Company company) {
+	private static Company setCompanyDetails(Company company) {
 
 		in.nextLine();
 
 		System.out.println("Enter Company Name:");
 		String name = in.nextLine();
+                company.setCompanyName(name);
 
-		System.out.println("Enter Company Number:");
-		String number = in.nextLine();
+		System.out.println("Enter Contact Name:");
+		String contactName = in.nextLine();
+                company.setContactName(contactName);
 
 		System.out.println("Enter Company Email:");
 		String email = in.nextLine();
+                company.setContactEmail(email);
+                
+                if (company.getOfferedInternships() == null || company.getOfferedInternships().isEmpty()) {
+                    System.out.println("Enter Internship Title:");
+                    String internshipTitle = in.nextLine();
 
-		System.out.println("Enter Internship Title:");
-		String internshipTitle = in.nextLine();
+                    System.out.println("Enter Type of Internship:");
+                    String typeOfInternship = in.nextLine();
 
-		System.out.println("Enter Type of Internship:");
-		String typeOfInternship = in.nextLine();
+                    System.out.println("Enter Semester Number: (1-8)");
+                    String semester = in.nextLine();
 
-		System.out.println("Enter Semester Number: (1-8)");
-		String semester = in.nextLine();
+                    System.out.println("Is Internship Paid (y/n):");
+                    String isPaid = in.nextLine();
+                    
+                    company.addInternship(internshipTitle, typeOfInternship, isPaid.equalsIgnoreCase("y"), semester);		
+                }
+                
+                return company;
+	}
+        
+        private static void printCompany(Company company, int index) {
+            System.out.print("Company Name:\t\t\t");
+			System.out.println(company.getCompanyName());		
 
-		System.out.println("Is Internship Paid (y/n):");
-		String isPaid = in.nextLine();
+			System.out.print("Company Number:\t\t\t");
+			System.out.println(index);
+			
+			System.out.print("Company Email:\t\t\t");
+			System.out.println(company.getContactEmail());
 
-		company.setCompany(name, number, email, internshipTitle, isPaid, typeOfInternship, semester);
-		return company;
-	}    
+			if (company.getOfferedInternships().size() > 0) {
+				CompanyInternship internship = company.getOfferedInternships().get(0);
+				System.out.print("Internship Title:\t\t");
+				System.out.println(internship.getInternshipTitle());
+		
+				System.out.print("Type of Internship:\t\t");
+				System.out.println(internship.getInternshipType());
+		
+				System.out.print("Semester Number: (1-8)\t\t");
+				System.out.println(internship.getInternshipSemester());
+		
+				System.out.print("Is Internship Paid (y/n):\t");
+				System.out.println(internship.isPaidInternship() == true ? "Y" : "N");
+		
+				System.out.println();
+			}		
+        }
+        
+        private static void printStudent(Student student, int index) {
+                        System.out.print("Student Number:\t\t");
+                        System.out.println(index);
+            
+                        System.out.print("Student Name:\t\t");
+			System.out.println(student.getName());
+			
+			System.out.print("Student Email:\t\t");
+			System.out.println(student.getEmail());
+			
+			System.out.print("Type of Internship:\t\t");
+			System.out.println(student.getInternshipType());
+			
+			System.out.print("Student Semester:\t\t");
+			System.out.println(student.getInternshipSemester());
+        }
 }

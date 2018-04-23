@@ -39,15 +39,15 @@ public class Student {
 	{
             name=n;
 	}
-        public void setemail(String e)
+        public void setEmail(String e)
 	{
             email=e;
 	}
-         public void setinternshipType(String it)
+         public void setInternshipType(String it)
 	{
             internshipType=it;
 	}
-          public void setinternshipSemester(String is)
+          public void setInternshipSemester(String is)
 	{
             internshipSemester=is;
 	}
@@ -55,21 +55,18 @@ public class Student {
 	{
             return name;
 	}
-        public String getemail()
+        public String getEmail()
 	{
             return email;
 	}
-        public String getinternshipType()
+        public String getInternshipType()
 	{
             return internshipType;
 	}
-        public String getSemesterForIntership()
+        public String getInternshipSemester()
         {
             return internshipSemester;
         }
         
 	
 }//end Class
-    
-    
-}
