@@ -20,7 +20,6 @@ g. Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
 
 package teamproject;
 
-import java.util.Scanner;
 import java.util.*;
 
 public class Company {
@@ -35,108 +34,14 @@ public class Company {
         offeredInternships = new ArrayList<>();
     
     // main added to test the class
-    public static void main(String [] args ) {
-        ArrayList<Company> companies = new ArrayList<>();
-        companies.add(getNewCompany(
-            "Google",
-            "Jack Sullivan",
-            "JSullivan@google.com",
-            new CompanyInternship(
-                "Information Technology Intern",
-                "Programming",
-                /* paid = */ true,
-                "Fall 2018")));
-            
-         companies.add(getNewCompany(
-            "Apple",
-            "Allie Smith",
-            "ASmith3@apple.com",
-            new CompanyInternship(
-                "Software Engineering  Intern: Core iOS",
-                "Software Engineering",
-                /* paid = */ false,
-                "Summer 2018")));
-                
-         companies.add(getNewCompany(
-            "Microsoft",
-            "James Matthews",
-            "JXMatthews@microsoft.com",
-            new CompanyInternship(
-                "Web & Content Development",
-                "Web Development",
-                /* paid = */ true,
-                "Spring 2019")));
-                
-         companies.add(getNewCompany(
-            "Microsoft",
-            "John Lawrence",
-            "JXLawrence@microsoft.com",
-            new CompanyInternship(
-                "Database Internship",
-                "Database",
-                /* paid = */ false,
-                "Fall 2018" )));
-                
-         companies.add(getNewCompany(
-            "Scratch",
-            "Susan Taft",
-            "STaft@scratch.mit.edu",
-            new CompanyInternship(
-                "Video & Graphic Developer",
-                "Video Developer",
-                /* paid = */ true,
-                "Spring 2019")));
-                
-         companies.add(getNewCompany(
-            "Scratch",
-            "Carrie Martin",
-            "CXMartin@scratch.mit.edu",
-            new CompanyInternship(
-                "Web Developer",
-                "Web Development",
-                /* paid = */ false,
-                "Fall 2018")));
-
-         companies.add(getNewCompany(
-            "Google",
-            "Phillip Young",
-            "PHYoung@google.com",
-            new CompanyInternship(
-                "Product Design",
-                "Programming",
-                /* paid = */ false,
-                "Summer 2018")));
-
-         companies.add(getNewCompany(
-            "Apple",
-            "Lisa Pope",
-            "LPopeX@hp@apple.com",
-            new CompanyInternship(
-                "Product Design",
-                "Programming",
-                /* paid = */ false,
-                "Summer 2018")));
-
-         companies.add(getNewCompany(
-            "Samsung",
-            "Avery Ryan",
-            "ARyan@samsung.com",
-            new CompanyInternship(
-                "Software Engineering/ Co-Op",
-                "Programming",
-                /* paid = */ true,
-                "Spring 2019")));
-      
-         companies.add(getNewCompany(
-            "Samsung",
-            "Michelle Boseman",
-            "Mboseman@samsung.com",
-            new CompanyInternship(
-                "IT/ Computer Systems Intern",
-                "Computer Systems",
-                /* paid = */ false,
-                "Summer 2018")));
-
+    public Company(String companyName, String contactName, String contactEmail, CompanyInternship ... internships) {
+        this.companyName = companyName;
+        this.contactName = contactName;
+        this.contactEmail = contactEmail;
+        
+        for (CompanyInternship internship : internships) {
+            this.offeredInternships.add(internship);
+        }
     }
     
     public static Company getNewCompany(
