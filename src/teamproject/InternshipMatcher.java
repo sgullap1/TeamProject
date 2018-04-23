@@ -5,10 +5,9 @@
  */
 package teamproject;
 
-/**
- *
- * @author sindh
- */
+
+import java.util.ArrayList;
+
 public class InternshipMatcher {
-    
+    ArrayList<Company> companies;
 }
