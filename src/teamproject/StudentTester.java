@@ -6,16 +6,40 @@
 package teamproject;
 
 public class StudentTester {
-        private static void printstudent(student Student)
+    private static void main(String[] args)
     {
+        Student student = new Student();
+        
+        student.setName("Test Name");
+        student.setEmail("testEmail@students.kennesaw.edu");
+        student.setInternshipType("Software");
+        student.setInternshipSemester("fall");
+        
         System.out.println("-----------------------------------");
         System.out.println("          Student           ");
         System.out.println("-----------------------------------");
-        System.out.println("Student name:     " + Student.getname());
-        System.out.println("Student Email:      " + Student.getemail());
-        System.out.println("Internship Type:    " + Student.getinternshipType());
-        System.out.println("Internship Semester:                   " + Student.getSemesterForIntership());
+        System.out.println("Student name:     " + student.getName());
+        System.out.println("Student Email:      " + student.getEmail());
+        System.out.println("Internship Type:    " + student.getInternshipType());
+        System.out.println("Internship Semester:                   " + student.getInternshipSemester());
         System.out.println("-----------------------------------");
         System.out.println("            * * * *");      
+        
+        System.out.println("Updating Student");
+        
+        student.setName("Updated Student Name");
+        student.setEmail("updatedEmail@students.kennesaw.edu");
+        student.setInternshipType("Art");
+        student.setInternshipSemester("spring");
+        
+        System.out.println("-----------------------------------");
+        System.out.println("          Student           ");
+        System.out.println("-----------------------------------");
+        System.out.println("Student name:     " + student.getName());
+        System.out.println("Student Email:      " + student.getEmail());
+        System.out.println("Internship Type:    " + student.getInternshipType());
+        System.out.println("Internship Semester:                   " + student.getInternshipSemester());
+        System.out.println("-----------------------------------");
+        System.out.println("            * * * *");  
     }    
 }
