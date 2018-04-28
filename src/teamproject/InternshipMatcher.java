@@ -12,22 +12,24 @@ import java.util.HashSet;
 
 public class InternshipMatcher {
 
+    //list of internships and companies maintained here
     public ArrayList<String> intershipTypes;
     private ArrayList<Company> companies = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();
-
+    
+    //adding a company
     public void addCompany(Company c) {
         getAllCompanies().add(c);
     }
-
+    //removing a company
     public void removeCompany(Company c) {
         getAllCompanies().remove(c);
     }
-
+    //adding a students
     public void addStudent(Student s) {
         getAllStudents().add(s);
     }
-
+    //removing a student
     public void removeStudent(Student s) {
         getAllStudents().remove(s);
     }
@@ -69,7 +71,7 @@ public class InternshipMatcher {
         }
         return result;
     }
-
+    //check list and get student that matches intern
     public ArrayList<String> getStudentsPerIntershipType(String s) {
         ArrayList<String> intStu = new ArrayList<String>();
         for (Student stu : getAllStudents()) {
@@ -79,7 +81,7 @@ public class InternshipMatcher {
         }
         return intStu;
     }
-
+    //check list and get company that matches student
     public ArrayList<String> getCompanyMatchesByStudents(Student s) {
         ArrayList<String> stuCom = new ArrayList<String>();
         for (Company com : getAllCompanies()) {
