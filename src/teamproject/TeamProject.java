@@ -125,7 +125,7 @@ public class TeamProject {
 
 				System.out.println("\nPrinting list of all companies\n");
 				for (int i = 0; i < matcher.getAllCompanies().size(); i++) {
-					System.out.println("Company No. " + i);
+//					System.out.println("Company No. " + i);
 					printCompany(matcher.getAllCompanies().get(i), i);
 				}
 
@@ -147,7 +147,7 @@ public class TeamProject {
 				break;
 
 			case 6: {
-				ArrayList<Student> allStudents = new ArrayList<Student>();
+				ArrayList<Student> allStudents = matcher.getAllStudents();
 
 				if (allStudents.size() < 1) {
 					System.out.println("\nNo student exists yet!\n");
@@ -157,7 +157,7 @@ public class TeamProject {
 				System.out.println("Select student to edit from list, -1 to return: ");
 
 				for (int i = 0; i < allStudents.size(); i++) {
-					System.out.println("Student No. " + i);
+					// System.out.println("Student No. " + i);
 					printStudent(allStudents.get(i), i);
 				}
 
@@ -177,7 +177,7 @@ public class TeamProject {
 				break;
 
 			case 7: {
-				ArrayList<Student> allStudents = new ArrayList<Student>();
+				ArrayList<Student> allStudents = matcher.getAllStudents();
 
 				if (allStudents.size() < 1) {
 					System.out.println("\nNo student exists yet!\n");
@@ -187,7 +187,7 @@ public class TeamProject {
 				System.out.println("Select student to delete from list, -1 to return: ");
 
 				for (int i = 0; i < allStudents.size(); i++) {
-					System.out.println("Student No. " + i);
+					// System.out.println("Student No. " + i);
 					printStudent(allStudents.get(i), i);
 				}
 
@@ -220,29 +220,12 @@ public class TeamProject {
                                 for (int i = 0; i < matcher.getAllStudents().size(); i++) {
                                     printStudent(matcher.getAllStudents().get(i), i);
                                     
-                                    ArrayList<Company> companyMatches = matcher.getCompanyMatchesByStudent(matcher.getAllStudents().get(i));
+                                    ArrayList<Company> companyMatches = matcher.getCompanyMatchesByStudents(matcher.getAllStudents().get(i));
                                     System.out.println("Companies offering similar internship:");
                                     for (Company company : companyMatches) {
                                         System.out.println(company.getCompanyName());
                                     }
                                 }
-
-//				for (Company company : main.listOfCompanies) {
-//					for (Student student : main.listOfStudents) {
-//						if (student.semester.equalsIgnoreCase(company.semester)) {
-//							
-//							if (student.typeOfInternship.equalsIgnoreCase(company.typeOfInternship)) {
-//								System.out.println("\nInternship match found.");
-//								System.out.println("Student Name: "+student.name);
-//								System.out.println("Company Name: "+company.companyName);
-//								System.out.println("Internship Title: "+company.internshipTitle);
-//								System.out.println("Internship type: "+company.typeOfInternship);
-//								System.out.println("Intership paid: "+company.isPaid);
-//								System.out.println("Semester: "+company.semester);
-//							}
-//						}
-//					}
-//				}
 
 			}
 			System.out.println("\n");
