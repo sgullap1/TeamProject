@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class InternshipMatcherTester {
     public static void main(String[] args) {
 
-        //Create few companies
+        //Create companies
         //true is paid internship
         //false is unpaid internship
         Company companyOne = new Company("Google", "JSullivan@google.com", "Jack Sullivan");
