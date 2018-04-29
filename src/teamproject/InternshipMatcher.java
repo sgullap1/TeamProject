@@ -232,6 +232,9 @@ Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
     //check list of company and get company that matches student
     public ArrayList<Company> getCompanyMatchesByStudents(Student s) {
         ArrayList<Company> stuCom = new ArrayList<Company>();
+/* to find matches, loop over all internships the companies  offer, 
+then loop through all students, and student semester matches,
+then check if their type of internship also matches */         
         for (Company com : getAllCompanies()) {
             for (CompanyInternship intern : com.getOfferedInternships()) {
                 if (intern.getInternshipType().equalsIgnoreCase(s.getInternshipType())) {
