@@ -34,6 +34,7 @@ public class InternshipMatcher {
 //Class InternshipMatcher
     
     
+//Declaring Instanc Variables
     public ArrayList<String> intershipTypes;
     private ArrayList<Company> companies = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();
@@ -228,7 +229,7 @@ Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
 //        }
 //        return intStu;
 //    }
-    //check list and get company that matches student
+    //check list of company and get company that matches student
     public ArrayList<Company> getCompanyMatchesByStudents(Student s) {
         ArrayList<Company> stuCom = new ArrayList<Company>();
         for (Company com : getAllCompanies()) {
