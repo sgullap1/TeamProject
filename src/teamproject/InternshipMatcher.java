@@ -160,9 +160,7 @@ Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
         }
         return result;
     }
-<<<<<<< HEAD
     
-=======
     //check list and get student that matches intern
 //    public ArrayList<String> getStudentsPerIntershipType(String s) {
 //        ArrayList<String> intStu = new ArrayList<String>();
@@ -173,7 +171,7 @@ Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
 //        }
 //        return intStu;
 //    }
->>>>>>> f706a3bbdfc910ab441cf3c7be548fd1fa3ad3c6
+    
     //check list of company and get company that matches student
     public ArrayList<Company> getCompanyMatchesByStudents(Student s) {
         ArrayList<Company> stuCom = new ArrayList<Company>();
@@ -191,20 +189,5 @@ then check if their type of internship also matches */
         }
         return stuCom;
     }
-<<<<<<< HEAD
-=======
-    
-//    public ArrayList<Company> getCompanyMatchesByStudent(Student s) {
-//        ArrayList<Company> matchingCompanies = new ArrayList<Company>();
-//        
-//        for (int i = 0; i < this.companies.size(); i++) {
-//            if (this.companies.get(i).checkInternshipOffered(s.getInternshipSemester())) {
-//                matchingCompanies.add(this.companies.get(i));
-//            }
-//        }
-//        
-//        return matchingCompanies;
-//    }
->>>>>>> f706a3bbdfc910ab441cf3c7be548fd1fa3ad3c6
 }  //end Class IntershipMatcher
 
