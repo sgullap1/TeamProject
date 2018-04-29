@@ -15,12 +15,9 @@ internships title
 internship paid/upaid
 */
 
-
 package teamproject;
 
 import java.util.ArrayList;
-
-
 
 public class InternshipMatcherTester {
     public static void main(String[] args) {
@@ -77,7 +74,7 @@ public class InternshipMatcherTester {
         matcher.addStudent(stuFive);
         matcher.addStudent(stuSix);
         matcher.addStudent(stuSeven);
-
+        
 
        System.out.println ("Get all Internships ::" + matcher.getAllInterships()) ;
 
