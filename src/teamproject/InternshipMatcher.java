@@ -5,6 +5,14 @@
 // Assignment:  Group Project
 
 /* 
+    Other Changes by team members:
+    Sindhuja Gullapalli
+        Added sample students
+    Stacey Tanner
+        Added sample companies
+    Tamar McDowell:
+        All other functions
+
 Creating Internship portion 
 based on the UML diagram design
 Declaring Instance/Class Variables
