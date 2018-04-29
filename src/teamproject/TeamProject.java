@@ -9,11 +9,11 @@
 Changes by team member:
 ------------------------
 Sindhuja Gullapalli
-    Make program user friendly, move common code to functions, integrate code from all team members, Bug fixes after integration, Comments
+    Menu options 5-8, Make program user friendly, Integrate code, bug fixes
 Stacey Tanner
     Menu options 1-4
 Tamar McDowell:
-    Program flow, Menu Options 5-9
+    Main method flow, Menu Options 9-10
 ------------------------
 
 Creating Internship portion 
@@ -106,7 +106,7 @@ public class TeamProject {
                     matcher.addCompany(company);
                     
                     // Show message
-                    System.out.println("Company added successfully!");
+                    System.out.println("Company added successfully!\n");
                     break;
                 }
                 
@@ -148,7 +148,7 @@ public class TeamProject {
                     // Modify company details from user input
                     setCompanyDetails(company);
 
-                    System.out.println("Company edited successfully!");
+                    System.out.println("Company updated successfully!\n");
 
                 }
                 break;
@@ -185,7 +185,7 @@ public class TeamProject {
                         break;
                     }
 
-                    System.out.println("Company deleted successfully!");
+                    System.out.println("Company deleted successfully!\n");
 
                 }
                 break;
@@ -214,7 +214,7 @@ public class TeamProject {
                     // Add student to student list
                     matcher.addStudent(student);
 
-                    System.out.println("Student added succesfully!");
+                    System.out.println("Student added succesfully!\n");
                 }
                 break;
 
@@ -257,7 +257,7 @@ public class TeamProject {
 
                     allStudents.set(studentNumber, student);
 
-                    System.out.println("Student edited successfully!");
+                    System.out.println("Student updated successfully!\n");
                 }
                 break;
 
@@ -293,7 +293,7 @@ public class TeamProject {
                         break;
                     }
 
-                    System.out.println("Student deleted successfully!");
+                    System.out.println("Student deleted successfully!\n");
                 }
                 break;
 
@@ -445,7 +445,7 @@ public class TeamProject {
             // Get internship type from user input
             String typeOfInternship = in.nextLine();
 
-            System.out.println("Enter Semester Number (Example: Fall 2018): ");
+            System.out.println("Enter Semester (Example: Fall 2018): ");
             // Get internship semester from user input
             String semester = in.nextLine();
 
