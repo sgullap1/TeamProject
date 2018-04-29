@@ -3,6 +3,18 @@
 // Name:        Tamar McDowell
 // Instructor:  Dr. Lynda Brown
 // Assignment:  Group Project
+/* 
+Internship Tester 
+based on the UML diagram design
+retrieving information for
+companies
+email
+contact
+students
+internships title
+internship paid/upaid
+*/
+
 
 package teamproject;
 
@@ -13,7 +25,7 @@ import java.util.ArrayList;
 public class InternshipMatcherTester {
     public static void main(String[] args) {
 
-        //Create few companies
+        //Create companies
         //true is paid internship
         //false is unpaid internship
         Company companyOne = new Company("Google", "JSullivan@google.com", "Jack Sullivan");
@@ -44,6 +56,10 @@ public class InternshipMatcherTester {
         matcher.addCompany(companyOne);
         matcher.addCompany(companyTwo);
         matcher.addCompany(companyThree);
+        matcher.addCompany(companyFour);
+        matcher.addCompany(companyFive);
+        matcher.addCompany(companySix);
+        matcher.addCompany(companySeven);
 
 
         Student stuOne = new Student("Tom", "tom@gmail.com", "IT", "FALL");
