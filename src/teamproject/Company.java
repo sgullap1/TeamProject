@@ -24,7 +24,8 @@ import java.util.*;
 
 public class Company {
     
-    // main method begins program execution
+    // contributed by Stacey M. Tanner 
+    //main method begins program execution
     // Instance variable of CollegeInternships
   
     private String companyName;
@@ -48,7 +49,7 @@ public class Company {
             this.offeredInternships.add(internship);
         }
     }
-
+    //This format was created in the UML
     public String getCompanyName() {
         // // get method for Company Name
         return companyName;
