@@ -72,7 +72,7 @@ Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
                 
          companies.add(new Company("Scratch", "Susan Taft", "STaft@scratch.mit.edu", 
          new CompanyInternship("Video & Graphic Developer", "Video Developer", /* paid = */ true, "Spring 2019")));
-           
+         
          companies.add(new Company("Scratch", "Carrie Martin", "CXMartin@scratch.mit.edu",
          new CompanyInternship("Web Developer", "Web Development", /* paid = */ false, "Fall 2018")));
 
@@ -160,7 +160,20 @@ Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
         }
         return result;
     }
+<<<<<<< HEAD
     
+=======
+    //check list and get student that matches intern
+//    public ArrayList<String> getStudentsPerIntershipType(String s) {
+//        ArrayList<String> intStu = new ArrayList<String>();
+//        for (Student stu : getAllStudents()) {
+//            if (stu.getInternShipType().equalsIgnoreCase(s)) {
+//                intStu.add(stu.getName());
+//            }
+//        }
+//        return intStu;
+//    }
+>>>>>>> f706a3bbdfc910ab441cf3c7be548fd1fa3ad3c6
     //check list of company and get company that matches student
     public ArrayList<Company> getCompanyMatchesByStudents(Student s) {
         ArrayList<Company> stuCom = new ArrayList<Company>();
@@ -178,5 +191,20 @@ then check if their type of internship also matches */
         }
         return stuCom;
     }
+<<<<<<< HEAD
+=======
+    
+//    public ArrayList<Company> getCompanyMatchesByStudent(Student s) {
+//        ArrayList<Company> matchingCompanies = new ArrayList<Company>();
+//        
+//        for (int i = 0; i < this.companies.size(); i++) {
+//            if (this.companies.get(i).checkInternshipOffered(s.getInternshipSemester())) {
+//                matchingCompanies.add(this.companies.get(i));
+//            }
+//        }
+//        
+//        return matchingCompanies;
+//    }
+>>>>>>> f706a3bbdfc910ab441cf3c7be548fd1fa3ad3c6
 }  //end Class IntershipMatcher
 
