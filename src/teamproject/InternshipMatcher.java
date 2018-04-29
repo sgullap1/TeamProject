@@ -4,23 +4,58 @@
 // Instructor:  Dr. Lynda Brown
 // Assignment:  Group Project
 
+/* 
+Creating Internship portion 
+based on the UML diagram design
+Declaring Instance/Class Variables
+companies: ArrayList<Company>
+students: ArrayList<Student>
+internshipsTypes: ArrayList<string>
+
+Methods used
+addCompany (Company c)
+removeCompany (Company c)
+addStudent (Student s)
+removeStudent (Student s)
+GetAllCompanies ()
+GetAllStudents ()
+GetAllInternships ()
+GetStudentsPerInternshipType (string type)
+GetCompanyMatchesByStudent (Student s)
+*/
+
+
 package teamproject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
 public class InternshipMatcher {
-
-    //list of internships and companies maintained here
+//Class InternshipMatcher
+    
+    
     public ArrayList<String> intershipTypes;
     private ArrayList<Company> companies = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();
-    
+/* 
+list of internships and companies maintained here
+based on the following information:
+Company:
+Contact:
+Contact Email: 
+Internship Title:
+Whether internship is paid or unpaid: 
+Type of Internship(s) offered (Programming, Web Developer, Security,  Information Technology,Web Development, Database,
+Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
+ */
+  
+//Default Constructor
     public InternshipMatcher() {
         this.addExistingCompanies();
     }
     
     private void addExistingCompanies() {
+//method to add existing companies
         companies.add(new Company(
             "Google",
             "Jack Sullivan",
@@ -122,33 +157,40 @@ public class InternshipMatcher {
                 "Summer 2018")));
     }
     
-    //adding a company
+    //method to add company
     public void addCompany(Company c) {
         getAllCompanies().add(c);
     }
-    //removing a company
+    //method to remove company
     public void removeCompany(Company c) {
         getAllCompanies().remove(c);
     }
-    //adding a students
+    
+   //method to add student
     public void addStudent(Student s) {
         getAllStudents().add(s);
     }
-    //removing a student
+
+    //method to remove student
     public void removeStudent(Student s) {
         getAllStudents().remove(s);
     }
 
     public ArrayList<Company> getAllCompanies() {
+        // get method for Company
         return companies;
     }
 
     public ArrayList<Student> getAllStudents() {
+        // get method for Student
         return students;
     }
 
     public ArrayList<String> getAllInterships() {
+        // get method for Internship Name  
+        
         intershipTypes = new ArrayList<String>();
+        //store each internship types 
         for (Company com : getAllCompanies()) {
             //System.out.println(com);
             for (CompanyInternship intern : com.getOfferedInternships()) {
@@ -211,5 +253,5 @@ public class InternshipMatcher {
 //        
 //        return matchingCompanies;
 //    }
-}
+}  //end Class IntershipMatcher
 
