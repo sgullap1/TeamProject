@@ -52,7 +52,7 @@ public class TeamProject {
                 continue;
 
             }
-            if (menuChoice < 1 || menuChoice > 9) {
+            if (menuChoice < 1 || menuChoice > 10) {
                 System.out.println("Invalid Selection, Please try again.\n\n");
                 continue;
             }
@@ -267,8 +267,10 @@ public class TeamProject {
             }
 
         }
-        
+                
+        System.out.println("\nThank you for using Internship Matcher.");
         System.out.println("\nExiting...!");
+        System.out.println("***");
     }
 
     private static Student setStudentDetails(Student student) {
