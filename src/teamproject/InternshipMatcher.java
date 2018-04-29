@@ -50,7 +50,7 @@ Type of Internship(s) offered (Programming, Web Developer, Security,  Informatio
 Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
  */
   
-//Default Constructor
+//Default Constructor to take arguments
     public InternshipMatcher() {
         this.addExistingCompanies();
     }
