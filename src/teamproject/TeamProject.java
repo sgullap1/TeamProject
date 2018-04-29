@@ -13,7 +13,7 @@ Sindhuja Gullapalli
 Stacey Tanner
     Menu options 1-4
 Tamar McDowell:
-    Main method flow, Menu Options 9-10
+    Main method, menu and flow, Menu Options 9-10
 ------------------------
 
 Creating Internship portion 

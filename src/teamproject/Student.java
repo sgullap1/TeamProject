@@ -50,9 +50,7 @@ public class Student {
         email = "";
         internshipType = "";
         internshipSemester = "";
-
-    }
-    
+    }    
 
     //Constructor initializing instance variables with arguments
     public Student(String n, String e, String it, String is) {
