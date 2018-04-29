@@ -29,12 +29,12 @@ printCompany (Company company, int index)
 printStudent (Student student, int index)
 printAllCompanies(ArrayList<Company> allCompanies)
 printAllStudents(ArrayList<Student> allStudents)
-*/
-
+ */
 package teamproject;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.IOException;
 
 public class TeamProject {
 
@@ -98,18 +98,18 @@ public class TeamProject {
                     // Initialize Company object
                     Company company = new Company();
                     System.out.println("\nAdding new company:");
-                    
+
                     // Add details to company from user input
                     company = setCompanyDetails(company);
-                    
+
                     // Add company to list
                     matcher.addCompany(company);
-                    
+
                     // Show message
                     System.out.println("Company added successfully!\n");
                     break;
                 }
-                
+
                 // Option 2: Edit Company
                 case 2: {
                     // Get company list
@@ -318,7 +318,7 @@ public class TeamProject {
                     System.out.println("-------------------------------------------------------------------");
                     System.out.println("                     Students and Matches");
                     System.out.println("-------------------------------------------------------------------");
-                                        
+
                     for (int i = 0; i < matcher.getAllStudents().size(); i++) {
                         // Print each student
                         printStudent(matcher.getAllStudents().get(i), i);
@@ -326,7 +326,7 @@ public class TeamProject {
                         // Get company matches for student's internship type and semester
                         ArrayList<Company> companyMatches = matcher.getCompanyMatchesByStudents(matcher.getAllStudents().get(i));
                         System.out.println("Companies offering internship \"" + matcher.getAllStudents().get(i).getInternshipType() + "\" during \"" + matcher.getAllStudents().get(i).getInternshipSemester() + "\":");
-                        
+
                         if (companyMatches.size() > 0) {
                             // Print all matching companies
                             for (int j = 0; j < companyMatches.size(); j++) {
@@ -340,12 +340,12 @@ public class TeamProject {
 
                                 System.out.println("\t" + (j + 1) + ". " + companyMatches.get(j).getCompanyName() + " (" + paidOrUnpaid + ")");
                             }
-                            
+
                             System.out.println("-------------------------------------------------------------------");
                         } else {
                             System.out.println("No match found.");
                             System.out.println("-------------------------------------------------------------------");
-                        }                        
+                        }
                     }
                 }
                 System.out.println("\n");
@@ -353,8 +353,15 @@ public class TeamProject {
 
             }
 
+            System.out.println("Press enter to continue.");
+            
+            try {
+                System.in.read();
+            } catch (IOException e) {
+                continue;
+            }
         }
-                
+
         // Print exit message
         System.out.println("\nThank you for using Internship Matcher.");
         System.out.println("\nExiting...!");
@@ -416,46 +423,30 @@ public class TeamProject {
         // Add/Update email
         company.setContactEmail(email);
 
+        // Get internship title from user input
+        System.out.println("Enter Internship Title:");
+        String internshipTitle = in.nextLine();
+
+        System.out.println("Enter Type of Internship:");
+        // Get internship type from user input
+        String typeOfInternship = in.nextLine();
+        System.out.println("Enter Semester (Example: Fall 2018): ");
+        // Get Semester from user input
+        String semester = in.nextLine();
+
+        System.out.println("Is Internship Paid (y/n):");
+        // Get whether paid/unpaid from user input
+        String isPaid = in.nextLine();
+
         if (company.getOfferedInternships() == null || company.getOfferedInternships().isEmpty()) {
-            // Get internship title from user input
-            System.out.println("Enter Internship Title:");
-            String internshipTitle = in.nextLine();
-            
-            System.out.println("Enter Type of Internship:");
-            // Get internship type from user input
-            String typeOfInternship = in.nextLine();            
-            System.out.println("Enter Semester Number (Example: Fall 2018): ");
-            // Get Semester from user input
-            String semester = in.nextLine();
-
-            System.out.println("Is Internship Paid (y/n):");
-            // Get whether paid/unpaid from user input
-            String isPaid = in.nextLine();
-
             // Add internship to company
             company.addInternship(internshipTitle, typeOfInternship, isPaid.equalsIgnoreCase("y"), semester);
         } else {
             CompanyInternship internship = company.getOfferedInternships().get(0);
-            
-            System.out.println("Enter Internship Title:");
-            // Get internship title from user input
-            String internshipTitle = in.nextLine();            
 
-            System.out.println("Enter Type of Internship:");
-            // Get internship type from user input
-            String typeOfInternship = in.nextLine();
-
-            System.out.println("Enter Semester (Example: Fall 2018): ");
-            // Get internship semester from user input
-            String semester = in.nextLine();
-
-            System.out.println("Is Internship Paid (y/n):");
-            // Get wheter paid/unpaid from input
-            String isPaid = in.nextLine();
-            
             // Remove existing internship
             company.removeInternship(internship.getInternshipTitle());
-            
+
             // Add updated internship details
             company.addInternship(internshipTitle, typeOfInternship, isPaid.equalsIgnoreCase("y"), semester);
         }
@@ -471,6 +462,9 @@ public class TeamProject {
         System.out.print("Company Name:\t\t\t");
         System.out.println(company.getCompanyName());
 
+        System.out.print("Contact Name: \t\t\t");
+        System.out.println(company.getContactName());
+
         System.out.print("Company Email:\t\t\t");
         System.out.println(company.getContactEmail());
 
@@ -482,7 +476,7 @@ public class TeamProject {
             System.out.print("Type of Internship:\t\t");
             System.out.println(internship.getInternshipType());
 
-            System.out.print("Semester:\t\t");
+            System.out.print("Semester:\t\t\t");
             System.out.println(internship.getInternshipSemester());
 
             System.out.print("Is Internship Paid (y/n):\t");
@@ -513,27 +507,27 @@ public class TeamProject {
     // Print All Companies
     private static void printAllCompanies(ArrayList<Company> allCompanies) {
         System.out.println("----------------------------------------------------------");
-        System.out.println("                      All Companies");
+        System.out.println("             All Companies (Total: " + allCompanies.size() + ")");
         System.out.println("----------------------------------------------------------");
         for (int i = 0; i < allCompanies.size(); i++) {
             printCompany(allCompanies.get(i), i);
             System.out.println("----------------------------------------------------------");
         }
-        
+
         System.out.println("***");
     }
 
     // Print All Students
     private static void printAllStudents(ArrayList<Student> allStudents) {
         System.out.println("-------------------------------------------------------");
-        System.out.println("                   All Students");
+        System.out.println("          All Students (Total: " + allStudents.size() + ")");
         System.out.println("-------------------------------------------------------");
 
         for (int i = 0; i < allStudents.size(); i++) {
             printStudent(allStudents.get(i), i);
             System.out.println("-------------------------------------------------------");
         }
-        
+
         System.out.println("***");
     }
 }
