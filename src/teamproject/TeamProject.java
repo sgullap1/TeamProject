@@ -7,12 +7,14 @@
 /* 
 
 Changes by team member:
+------------------------
 Sindhuja Gullapalli
     Make program user friendly, move common code to functions, integrate code from all team members, Bug fixes after integration, Comments
 Stacey Tanner
     Menu options 1-4
 Tamar McDowell:
     Program flow, Menu Options 5-9
+------------------------
 
 Creating Internship portion 
 based on the UML diagram design
@@ -66,7 +68,7 @@ public class TeamProject {
             System.out.println("6. Edit Student");
             System.out.println("7. Delete Student");
             System.out.println("8. View All Students");
-            System.out.println("9. Match company to students");
+            System.out.println("9. Match companies to students");
             System.out.println("10. Exit");
             System.out.println("--------------------------------------");
 
@@ -325,12 +327,25 @@ public class TeamProject {
                         ArrayList<Company> companyMatches = matcher.getCompanyMatchesByStudents(matcher.getAllStudents().get(i));
                         System.out.println("Companies offering internship \"" + matcher.getAllStudents().get(i).getInternshipType() + "\" during \"" + matcher.getAllStudents().get(i).getInternshipSemester() + "\":");
                         
-                        // Print all matching companies
-                        for (int j = 0; j < companyMatches.size(); j++) {
-                            System.out.println("\t" + (j + 1) + ". " + companyMatches.get(j).getCompanyName());
-                        }
-                        
-                        System.out.println("-------------------------------------------------------------------");
+                        if (companyMatches.size() > 0) {
+                            // Print all matching companies
+                            for (int j = 0; j < companyMatches.size(); j++) {
+                                boolean isPaid = companyMatches.get(j).getOfferedInternships().get(0).isPaidInternship();
+
+                                String paidOrUnpaid = "Paid";
+
+                                if (!isPaid) {
+                                    paidOrUnpaid = "Unpaid";
+                                }
+
+                                System.out.println("\t" + (j + 1) + ". " + companyMatches.get(j).getCompanyName() + " (" + paidOrUnpaid + ")");
+                            }
+                            
+                            System.out.println("-------------------------------------------------------------------");
+                        } else {
+                            System.out.println("No match found.");
+                            System.out.println("-------------------------------------------------------------------");
+                        }                        
                     }
                 }
                 System.out.println("\n");

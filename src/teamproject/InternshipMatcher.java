@@ -102,7 +102,7 @@ Semester for Internship: Summer 2018,  Fall 2018, Spring 2019
         students.add(new Student ("Christopher Lopez", "chrisl@students.kennesaw.edu", "Web Development", "Fall 2018"));
         students.add(new Student ("Sarah Wilson", "sarahw@students.kennesaw.edu", "Software Engineering", "Summer 2018"));
         students.add(new Student ("Harry Mathew", "harrym@students.kennesaw.edu", "Programming", "Spring 2019"));
-        students.add(new Student ("Harry Mathew", "sheliaj@students.kennesaw.edu", "Programming", "Summer 2018"));
+        students.add(new Student ("Shelia Jade", "sheliaj@students.kennesaw.edu", "Programming", "Summer 2018"));
         students.add(new Student ("Peter Adams", "petera@students.kennesaw.edu", "Database", "Fall 2018"));
         students.add(new Student ("Anderson Davis", "andersond@students.kennesaw.edu", "Web Development", "Spring 2019"));
     }
